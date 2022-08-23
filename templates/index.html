@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<div class="container-fluid px-0">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+                <img src="/static/1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+            <h5>Welcome to the Scy Bollowood News</h5>
+            <p>Powered by Hungama</p>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<div class="container my-3">
+<h1 class="my-4 text-center">Read full news by clicking More.</h1>
+      <div class="row">
+          {% for movie in res %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+        <img src={{movie.image}} class="d-block w-100" alt="...">
+            
+            <div class="card-body">
+              <p class="card-text">{{movie.title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-outline-secondary" href={{movie.link}} role="button">More</a>
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>-->
+                </div>
+                <small class="text-muted">Hot News</small>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endfor %}
+      </div>
+    </div>
+{% endblock body %}
